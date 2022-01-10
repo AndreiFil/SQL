@@ -17,6 +17,7 @@ create table salary(
 
 
 --3.Create an employee_salary table
+
 create table employee_salary(
 	id serial primary key,
 	employee_id int not null unique,
@@ -25,6 +26,7 @@ create table employee_salary(
 
 
 --4.Сreate a roles table
+
 create table roles (
 	id serial primary key,
 	role_name int unique not null 
@@ -44,11 +46,13 @@ create table roles_employee(
 	foreign key (role_id)
 		references roles(id)
 );
+
 --==================================================================================
 
 --==================================================================================
 --================================Data Type Change block============================
---Поменять тип столба role_name с int на varchar(30)
+
+--Change type of data in role_name table from integer to varchar(30)
 alter table roles alter column role_name type varchar(30) using roles::varchar(30);
 
 --==================================================================================
@@ -57,6 +61,7 @@ alter table roles alter column role_name type varchar(30) using roles::varchar(3
 
 --==================================================================================
 --================================All select command in the one place===============
+
 select * from employees;
 select * from salary;
 select * from employee_salary;
@@ -64,11 +69,11 @@ select * from roles;
 select * from roles_employee;
 
 
--==================================================================================
+--==================================================================================
 
 
 
---===============================Filling tables with Data==========================
+--===============================Filling tables with Data block=====================
 
 --6.Fill employees table  with 70 lines
 insert into employees (employee_name)
@@ -97,11 +102,11 @@ values  ('Junior Python developer'), ('Middle Python developer'), ('Senior Pytho
 	
 	
 	
--==================================================================================
---==============================Drop tables block==================================
+--==================================================================================
+--==============================Drop tables block===================================
 drop table employee_salary;
 drop table salary;
 drop table employees;
 drop table roles_employee;
 drop table roles;
--==================================================================================
+--==================================================================================
